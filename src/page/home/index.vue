@@ -5,12 +5,15 @@
     ul
       li
         router-link(to="/") Home
-
       li
         router-link(to="/pub") Pub
+      li
+        router-link(to="/hotel") Hotel
 </template>
 
 <style lang="stylus" scoped>
+  .home-page
+    padding: 20px
 </style>
 
 

@@ -21,6 +21,12 @@ const router = new Router({
       name: 'hero',
       path: '/hero/:heroName',
       component: () => import('../page/hero/index.vue')
+    },
+
+    {
+      name: 'hotel',
+      path: '/hotel',
+      component: () => import('../page/hotel/index.vue')
     }
   ]
 })

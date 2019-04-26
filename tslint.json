@@ -4,26 +4,16 @@
     "tslint:recommended"
   ],
   "rules": {
-    // 限制数组类型声明格式.
-    // - 只允许 T[], 禁止 Array<T>.
     "array-type": [
       true,
       "array"
     ],
-
-    // 箭头函数在单个参数时不能带有括号.
     "arrow-parens": [
       true,
       "ban-single-arg-parens"
     ],
-
-    // 单行箭头函数不使用 return 关键字.
     "arrow-return-shorthand": true,
-
-    // 禁止使用逗号表达式.
     "ban-comma-operator": true,
-
-    // 禁止使用类型.
     "ban-types": {
       "options": [
         [
@@ -48,178 +38,78 @@
         ]
       ]
     },
-
-    // 强制要求 class 使用大驼峰命名.
     "class-name": true,
-
-    // 检查单行注释格式.
-    // - 单行注释需加一个空格.
     "comment-format": [true, "check-space"],
-
-    // 强行要求 if / for / do / while 带有括号.
     "curly": true,
-
-    // 最后一行为空行.
     "eofline": true,
-
-    // 在 for-in 中需要使用 hasOwnProperty 检查属性.
     "forin": true,
-
-    // 检查代码缩进.
     "indent": [true, "spaces", 2],
-
-    // Interface 命名检查.
     "interface-name": [
       true,
       "always-prefix"
     ],
-
-    // 优先使用 Interface 定义 {...}.
     "interface-over-type-literal": true,
-
-    // 检测 JSDOC 注释格式.
     "jsdoc-format": true,
-
-    // 仅仅允许在 do / for / while / switch 中合理的位置使用 label.
     "label-position": true,
-
-    // 定义单行最大长度.
     "max-line-length": [true, 120],
-
-    // 关闭文件 Class 数量检测.
     "max-classes-per-file": false,
-
-    // 类型成员访问级别检测配置.
     "member-access": [
       true,
       "no-public"
     ],
-
-    // 关闭类型成员排序检测.
     "member-ordering": false,
-
-    // 手动协商类型时强制要求使用 as Type 语句.
     "no-angle-bracket-type-assertion": true,
-
-    // 允许位操作.
     "no-bitwise": false,
-
-    // 允许 Console.
     "no-console": [true, 1],
-
-    // 不允许出现连续空行.
     "no-consecutive-blank-lines": true,
-
-    // 允许 debugger.
     "no-debugger": false,
-
-    // 进制 switch 中的多余 case.
     "no-duplicate-switch-case": true,
-
-    // 禁止空 Interface 定义.
     "no-empty-interface": true,
-
-    // 禁止使用 eval.
     "no-eval": true,
-
-    // 禁止引入 package.json 中不包含的模块.
     "no-implicit-dependencies": [
       true,
       "dev"
     ],
-
-    // 禁止使用 namespace.
     "no-namespace": true,
-
-    // 不允许非必要属性字符访问表达式.
-    // 允许 obj['prop-yes'], 不允许 obj['prop'], 请使用 obj.prop.
     "no-string-literal": true,
-
-    // 禁止内部模块.
     "no-internal-module": true,
-
-    // 禁止使用 <reference>.
     "no-reference": true,
-
-    // 不允许子作用域变量命名和父作用域重复.
     "no-shadowed-variable": true,
-
-    // 禁止条件穿透 switch.
     "no-switch-case-fall-through": true,
-
-    // 禁止结尾空格.
     "no-trailing-whitespace": [
       true,
       "ignore-template-strings"
     ],
-
-    // 禁止未使用表达式声名.
     "no-unused-expression": [
       true,
       "allow-fast-null-checks"
     ],
-
-    // 禁止使用 Node 风格 require 语句.
-    // 请使用 import foo = requirE('foo') 代替.
     "no-var-requires": true,
-
-    // 禁止使用 var 关键字.
     "no-var-keyword": true,
-
-    // 不检查对象键名排序.
     "object-literal-sort-keys": false,
-
-    // 设置对象的引号行为.
-    // - 默认不允许引号.
-    // - 一旦对象中出现必须的引号使用, 则整个对象都必须带引号.
     "object-literal-key-quotes": [
       true,
       "consistent-as-needed"
     ],
-
-    // 优先使用 ES6 的对象断属性.
     "object-literal-shorthand": true,
-
-    // 要求单次变量声明只能定义一个变量.
     "one-variable-per-declaration": [
       true, "ignore-for-loop"
     ],
-
-    // 允许函数声明.
     "only-arrow-functions": false,
-
-    // 要求对 import 进行排序.
     "ordered-imports": true,
-
-    // 优先要求使用 const.
     "prefer-const": true,
-
-    // 引号配置.
-    // - 单引号.
-    // - 不检查 escaping.
     "quotemark": [
       true,
       "single",
       "avoid-escape"
     ],
-
-    // 强制要求 parseInt() 传入 radix 参数.
     "radix": false,
-
-    // 分号配置.
-    // - 在非必须时禁用所有引号.
     "semicolon": [
       true,
       "never"
     ],
-
-    // TODO: ...
     "space-before-function-paren": true,
-
-    // 强制要求强类型判断.
     "triple-equals": true,
-
-    // 类型定义空格行为.
     "typedef-whitespace": [
       true,
       {
@@ -237,16 +127,12 @@
         "variable-declaration": "onespace"
       }
     ],
-
-    // 空格检查设定.
     "whitespace": [
       true,
       "check-branch", "check-decl",
       "check-rest-spread", "check-type", "check-type-operator",
       "check-module", "check-operator", "check-separator", "check-preblock"
     ],
-
-    // 禁止行尾逗号.
     "trailing-comma": [
       true,
       {
@@ -254,11 +140,6 @@
         "singleline": "never"
       }
     ],
-
-    // 变量命名规范检查.
-    // - 禁止使用关键字.
-    // - 仅仅允许 lowerCamelCased 和 UPPER_CASED.
-    // - 允许头部使用 _.
     "variable-name": [
       true,
       "ban-keywords",

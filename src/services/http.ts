@@ -1,17 +1,16 @@
-import Axios, { AxiosRequestConfig, AxiosPromise } from 'axios'
-import { Injectable } from '@vert/core';
-
-const axios = Axios.create()
+import { Injectable } from '@vert/core'
+import Axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios'
 
 @Injectable()
 class Http {
+  private axios: AxiosInstance = Axios.create()
 
   get <T = any> (url: string, config?: AxiosRequestConfig): AxiosPromise<T> {
-    return axios.get(url, config)
+    return this.axios.get(url, config)
   }
 
   post <T = any> (url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
-    return axios.post(url, data, config)
+    return this.axios.post(url, data, config)
   }
 }
 
