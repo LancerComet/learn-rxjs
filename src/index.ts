@@ -1,36 +1,25 @@
-import { fromEvent, Observable } from 'rxjs'
-import { map, scan, throttle, throttleTime } from 'rxjs/operators'
+import 'reflect-metadata'
 
-const button1 = document.querySelector('#button-1') as HTMLButtonElement
+import Vue from 'vue'
+import VueRx from 'vue-rx'
+import { App } from '@vert/core'
 
-fromEvent(button1,'click')
-  .pipe(
-    throttleTime(500),
-    map(() => 1),
-    scan((prev, clickDelta, index) => clickDelta + prev, 0),
-  )
-  .subscribe(count => console.log(count))
+import './style/index.styl'
 
+import { router } from './router'
+import { HeroService } from './services/hero'
+import { Http } from './services/http'
 
-const observable = new Observable(subscriber => {
-  let count = 0
-  const exec = () => {
-    subscriber.next(count++)
-    setTimeout(exec, 1000)
-  }
-  exec()
+import AppLayout from './layout/index.vue'
+
+Vue.use(VueRx)
+
+App.addTransient(Http, HeroService)
+
+const appVm = new App({
+  element: '#app-vm',
+  RootComponent: AppLayout,
+  router
 })
 
-console.log('invoke subscribe')
-observable.subscribe({
-  next (value) {
-    console.log('next:', value)
-  },
-  error (error) {
-    console.error('On error:', error)
-  },
-  complete () {
-    console.log('complete')
-  }
-})
-console.log('invoke done')
+appVm.start()

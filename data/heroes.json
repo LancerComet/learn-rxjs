@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Akashiya Moka",
+    "attack": 86,
+    "hp": 47,
+    "type": 0
+  },
+
+  {
+    "name": "Kurono Kurumu",
+    "attack": 92,
+    "hp": 42,
+    "type": 1
+  },
+
+  {
+    "name": "Sendou Yukari",
+    "attack": 71,
+    "hp": 37,
+    "type": 2
+  },
+
+  {
+    "name": "Shirayuki Mizore",
+    "attack": 83,
+    "hp": 45,
+    "type": 3
+  },
+
+  {
+    "name": "Doujyou Rubi",
+    "attack": 89,
+    "hp": 47,
+    "type": 2
+  },
+
+  {
+    "name": "Shiyuzen Kokoa",
+    "attack": 74,
+    "hp": 40,
+    "type": 0
+  }
+]
