@@ -29,7 +29,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "@vert/core": "^1.0.4",
+    "@vert/core": "^1.0.5",
     "axios": "^0.18.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.1",

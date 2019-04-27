@@ -1,4 +1,6 @@
 import { Injectable } from '@vert/core'
+import { Observable } from 'rxjs'
+import { ajaxGetJSON } from 'rxjs/internal-compatibility'
 import { Hero, IHero } from '../models/hero'
 import { Http } from './http'
 
@@ -14,6 +16,10 @@ class HeroService {
     return heroList
       .filter(item => item.name === name)
       .shift()
+  }
+
+  createHeroList$ (): Observable<Hero[]> {
+    return ajaxGetJSON<Hero[]>('/data/heroes.json')
   }
 
   constructor (

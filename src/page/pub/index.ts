@@ -1,28 +1,21 @@
 import { Component } from '@vert/core'
+import { interval, Observable } from 'rxjs'
 import Vue from 'vue'
+
 import { Hero } from '../../models/hero'
 import { HeroService } from '../../services/hero'
 
-@Component
-export default class PubPage extends Vue {
-  private inLoading: boolean = false
-  private heroList: Hero[] = []
-
-  private async getHeroList () {
-    if (this.inLoading) {
-      return
+@Component<PubPage>({
+  subscriptions () {
+    return {
+      count$: interval(1000),
+      heroList$: this.heroSrv.createHeroList$()
     }
-
-    this.inLoading = true
-    const data = await this.heroSrv.getHeroList()
-    this.inLoading = false
-
-    this.heroList = data
   }
-
-  created () {
-    this.getHeroList()
-  }
+})
+export default class PubPage extends Vue {
+  private readonly count$: Observable<number>
+  private readonly heroList$: Hero[]
 
   constructor (
     private heroSrv: HeroService

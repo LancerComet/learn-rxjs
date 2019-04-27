@@ -1,12 +1,11 @@
 <template lang="pug">
   div.pub-page
     h1 Pub
-
-    div
-      p Heroes never die.
+    p Heroes never die.
+    p {{count$}}
 
     ul
-      li(v-for="item in heroList")
+      li(v-for="item in heroList$")
         router-link(:to="'/hero/' + item.name") {{item.name}}
 </template>
 

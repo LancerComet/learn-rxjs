@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 import { Hero } from '../../models/hero'
 import { FriendService } from '../../services/friends'
-import { HeroService } from '../../services/hero';
+import { HeroService } from '../../services/hero'
 
 @Component
 export default class HeorPage extends Vue {
