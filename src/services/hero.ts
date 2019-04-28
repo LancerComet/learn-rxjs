@@ -18,7 +18,7 @@ class HeroService {
       .shift()
   }
 
-  createHeroList$ (): Observable<Hero[]> {
+  static createHeroList$ (): Observable<Hero[]> {
     return ajaxGetJSON<Hero[]>('/data/heroes.json')
   }
 
