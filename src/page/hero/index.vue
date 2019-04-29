@@ -8,8 +8,8 @@
       li type: {{hero.typeLabel}}
 
     div
-      button(v-if="!isFriend", @click="makeFriend") Make friend.
-      button(v-else) I don't like you anymore.
+      button(v-if="!isFriend", @click="makeFriend") Make friend
+      button(v-else, @click="breakUp") I don't like you anymore.
 </template>
 
 <style lang="stylus" scoped>

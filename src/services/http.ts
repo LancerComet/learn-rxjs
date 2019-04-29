@@ -3,7 +3,7 @@ import Axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios'
 
 @Injectable()
 class Http {
-  private axios: AxiosInstance = Axios.create()
+  private readonly axios: AxiosInstance = Axios.create()
 
   get <T = any> (url: string, config?: AxiosRequestConfig): AxiosPromise<T> {
     return this.axios.get(url, config)

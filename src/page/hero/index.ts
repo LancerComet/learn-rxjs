@@ -1,4 +1,4 @@
-import { Component, Prop } from '@vert/core'
+import { Component } from '@vert/core'
 import Vue from 'vue'
 
 import { Hero } from '../../models/hero'
@@ -17,6 +17,12 @@ export default class HeorPage extends Vue {
 
   private makeFriend () {
     this.friendService.makeFriend(this.hero)
+    this.isFriend = true
+  }
+
+  private breakUp () {
+    this.friendService.brokeUp(this.heroName)
+    this.isFriend = false
   }
 
   private async getHeroData () {
@@ -32,7 +38,14 @@ export default class HeorPage extends Vue {
     this.hero = data
   }
 
+  private checkIsFriend () {
+    this.isFriend = this.friendService
+      .getFriendList()
+      .some(item => item.name === this.heroName)
+  }
+
   created () {
+    this.checkIsFriend()
     this.getHeroData()
   }
 

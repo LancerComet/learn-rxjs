@@ -18,10 +18,6 @@ class HeroService {
       .shift()
   }
 
-  static createHeroList$ (): Observable<Hero[]> {
-    return ajaxGetJSON<Hero[]>('/data/heroes.json')
-  }
-
   constructor (
     private http: Http
   ) {}

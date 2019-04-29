@@ -1,37 +1,28 @@
 import { Component } from '@vert/core'
-import { Observable, Subject } from 'rxjs'
-import { map, scan, startWith } from 'rxjs/operators'
 import Vue from 'vue'
 
-import { Subscription } from '../../decorators/subscriptions'
-
 import { Hero } from '../../models/hero'
+import { FriendService } from '../../services/friends'
 import { HeroService } from '../../services/hero'
 
-@Component<PubPage>({
-  subscriptions () {
-    return {
-      count: this.addCount$.pipe(
-        map(() => 1),
-        startWith(0),
-        scan((total, change) => total + change)
-      )
-    }
-  }
-})
+@Component
 export default class PubPage extends Vue {
-  @Subscription(HeroService.createHeroList$())
-  private readonly heroList$: Observable<Hero[]>
-
-  private readonly addCount$: Subject<number> = new Subject()
-  private readonly count: number
-
+  private inLoading: boolean = false
   private heroList: Hero[] = []
 
   private async getHeroList () {
-    HeroService
-      .createHeroList$()
-      .subscribe(value => this.heroList = value)
+    if (this.inLoading) {
+      return
+    }
+
+    this.inLoading = true
+    const heroList = await this.heroSrv.getHeroList()
+    const friendList = this.friendSrv.getFriendList()
+    this.inLoading = false
+
+    this.heroList = heroList.filter(hero =>
+      !friendList.some(friend => hero.name === friend.name)
+    )
   }
 
   created () {
@@ -39,6 +30,7 @@ export default class PubPage extends Vue {
   }
 
   constructor (
+    private friendSrv: FriendService,
     private heroSrv: HeroService
   ) {
     super()

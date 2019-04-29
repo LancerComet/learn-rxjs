@@ -3,9 +3,10 @@
     h1 Hotel
     p Heroes need to rest.
 
-    div(v-if="myHeroList.length")
+    div(v-if="friendList.length")
       ul
-        li(v-if="item in myHeroList")
+        li(v-for="item in friendList")
+          router-link(:to="'/hero/' + item.name") {{item.name}}
 
     div(v-else)
       p You don't have a hero, <router-link to="/pub">Hangout.</router-link>
